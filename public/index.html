@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Artisans Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <h1 class="logo">CraftLocal</h1>
+            <div class="nav-controls">
+                <input type="text" id="search-input" placeholder="ค้นหาสินค้า...">
+                <button id="cart-btn" onclick="toggleCart(true)">🛒 ตะกร้า <span id="cart-badge">0</span></button>
+                <span id="user-display" style="font-weight: bold; color: #8B5A2B;"></span>
+                <button id="logout-btn" onclick="logout()" style="display:none; background:#dc3545; color:white; border:none; padding:5px 10px; border-radius:15px; cursor:pointer;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h2>สนับสนุนผลงานและภูมิปัญญาท้องถิ่น</h2>
+        <p>แหล่งรวมสินค้าแฮนด์เมดจากช่างฝีมือท้องถิ่น</p>
+    </header>
+
+    <div id="login-section" class="container" style="max-width: 400px; margin-bottom: 20px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+        <h3 style="margin-bottom: 10px;">เข้าสู่ระบบ (ทดสอบระบบ Role)</h3>
+        <input type="text" id="username" placeholder="Username (admin / customer1)" style="width:100%; padding:8px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px;">
+        <input type="password" id="password" placeholder="Password (123456)" style="width:100%; padding:8px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px;">
+        <button onclick="login()" style="width:100%; padding:10px; background:#8B5A2B; color:white; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">Login</button>
+    </div>
+
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterCategory('All', this)">ทั้งหมด</button>
+        <button class="filter-btn" onclick="filterCategory('Bag', this)">กระเป๋า</button>
+        <button class="filter-btn" onclick="filterCategory('Textile', this)">ผ้าทอ</button>
+        <button class="filter-btn" onclick="filterCategory('Pottery', this)">เครื่องปั้น</button>
+    </div>
+
+    <main class="container">
+        <div id="product-grid" class="grid"></div>
+    </main>
+
+    <div id="cart-drawer" class="drawer">
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h3>รายการสินค้าในตะกร้า</h3>
+                <button class="close-btn" onclick="toggleCart(false)">&times;</button>
+            </div>
+            <div id="cart-items-list"></div>
+            <div class="drawer-footer">
+                <h4>ราคาสุทธิ: <span id="cart-total">0</span> บาท</h4>
+                <button id="checkout-btn" onclick="checkout()">สั่งซื้อและตัดสต็อก</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
